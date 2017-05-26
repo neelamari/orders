@@ -1,0 +1,12 @@
+---
+applications:
+- name:  orders
+  disk: 1024M
+  command: node app.js
+  memory: 256M
+  instances: 1
+services:
+- orders-db
+env:
+  platform: PWS
+  organization: NTTD
