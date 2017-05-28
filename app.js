@@ -9,7 +9,7 @@ var app = express();
 
 // Enable reverse proxy support in Express. This causes the
 // the "X-Forwarded-Proto" header field to be trusted so its
-// value can be used to determine the protocol. See 
+// value can be used to determine the protocol. See
 // http://expressjs.com/api#app-settings for more details.
 app.enable("trust proxy");
 
@@ -36,11 +36,13 @@ var logger = require("bunyan").createLogger({
 });
 
 
+
 // Bind mongodb connection
 var mongoUrl = appEnv.getServiceURL("orders-db");
 //var mongoService = appEnv.getService('kaiser-project-mongodb');
 //console.log('mongoUrl:'+ mongoUrl);
 //console.log('mongoService:'+ mongoService);
+
 
 var mongoose = require("mongoose");
 var cors = require("cors");
@@ -49,7 +51,7 @@ if (mongoUrl == null) {
 	//local development
 	mongoose.Promise = global.Promise;
 	//mongoose.connect('mongodb://localhost/project');
-	//Mocha test 
+	//Mocha test
 	if (process.env.ENV == "Test") {
 		mongoose.connect("mongodb://localhost/orders_test");
 	} else {
@@ -86,8 +88,8 @@ app.use(bodyParser.urlencoded({
 }));
 
 
-// Add a handler to inspect the req.secure flag (see 
-// http://expressjs.com/api#req.secure). This allows us 
+// Add a handler to inspect the req.secure flag (see
+// http://expressjs.com/api#req.secure). This allows us
 // to know whether the request was via http or https.
 app.use(function (req, res, next) {
 	if (req.secure || req.headers.host.includes("localhost")) {
@@ -110,5 +112,5 @@ app.listen(port, routeUrl, function () {
 	logger.info("Gulp server starting on " + routeUrl + ":" + port);
 });
 
-//export app for supertest 
+//export app for supertest
 module.exports = app;

@@ -2,7 +2,7 @@
 
 # Orders API
 
-* Backend REST API for Intake Project.
+* Backend REST API for Orders.
 
 * Exposes the following REST Endpoints
 
