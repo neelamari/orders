@@ -6,8 +6,8 @@ var mongoose = require("mongoose");
 var ordersSchema = mongoose.Schema({
 		customer: String,
 		product: String,
-		units: Number,
-		cost: Number, 	
+		units: String,
+		cost: String, 	
 		tracking_number: String,
 		tracking_status: String, 
 });

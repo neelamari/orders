@@ -74,6 +74,7 @@ if (mongoUrl == null) {
 			logger.info("Succeeded connected ");
 		}
 	});
+
 }
 
 // enables CORS on preflight requests
